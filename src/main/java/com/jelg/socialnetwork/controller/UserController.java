@@ -1,10 +1,12 @@
 package com.jelg.socialnetwork.controller;
-
+	
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,19 +21,35 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
-	@RequestMapping(path = "/user", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	@RequestMapping(path = "/users", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public ResponseEntity<?> create(@RequestBody User user) {
 		service.save(user);
-		return ResponseEntity
-				.status(HttpStatus.CREATED)
-				.build();
+		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 
-	@RequestMapping(path = "/user", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	@RequestMapping(path = "/users", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	public ResponseEntity<List<User>> findAll() {
 		List<User> users = service.findAll();
-		return ResponseEntity
-				.ok(users);
+		return ResponseEntity.ok(users);
+	}
+
+	@RequestMapping(path = "/users/{id}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> findById(@PathVariable("id") String id) {
+		Optional<User> userOptional = service.findById(id);
+
+		if (!userOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.OK).build();
+		}
+
+		return ResponseEntity.ok(userOptional.get());
+	}
+
+	@RequestMapping(path = "/users/{id}", method = RequestMethod.PUT, produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> update(@PathVariable("id") String id, @RequestBody User user) {
+		user.setId(id);
+		User entity = service.save(user);
+
+		return ResponseEntity.ok(entity);
 	}
 
 }
