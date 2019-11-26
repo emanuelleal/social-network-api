@@ -20,5 +20,9 @@ public class User {
 	private int age;
 	
 	private String password;
+	
+	public User(String id) {
+		this.id = id;
+	}
 
 }
