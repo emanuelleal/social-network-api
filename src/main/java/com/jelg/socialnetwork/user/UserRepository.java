@@ -1,8 +1,6 @@
-package com.jelg.socialnetwork.repository;
+package com.jelg.socialnetwork.user;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-
-import com.jelg.socialnetwork.models.User;
 
 public interface UserRepository extends MongoRepository<User, String>{
 

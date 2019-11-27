@@ -1,4 +1,4 @@
-package com.jelg.socialnetwork.controller;
+package com.jelg.socialnetwork.post;
 
 import java.util.List;
 
@@ -12,12 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jelg.socialnetwork.models.Post;
-import com.jelg.socialnetwork.models.User;
-import com.jelg.socialnetwork.service.PostService;
+import com.jelg.socialnetwork.user.User;
 
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
@@ -27,10 +23,6 @@ public class PostController {
 	private PostService service;
 	
 	@ApiOperation(value = "Update User")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "title", value = "Title", dataType = "string", paramType = "body"),
-            @ApiImplicitParam(name = "subtitle", value = "Subtitle", dataType = "string", paramType = "body")
-    })
 	@RequestMapping(value = "/posts", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public ResponseEntity<?> create(@RequestBody Post post, @RequestHeader("userId") String userId) {
 		post.setUserAuthor(new User(userId));

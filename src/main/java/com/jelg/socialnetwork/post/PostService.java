@@ -1,13 +1,11 @@
-package com.jelg.socialnetwork.service;
+package com.jelg.socialnetwork.post;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jelg.socialnetwork.models.Post;
-import com.jelg.socialnetwork.models.User;
-import com.jelg.socialnetwork.repository.PostRepository;
+import com.jelg.socialnetwork.user.User;
 
 @Service
 public class PostService {

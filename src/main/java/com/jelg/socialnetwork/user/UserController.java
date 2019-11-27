@@ -1,4 +1,4 @@
-package com.jelg.socialnetwork.controller;
+package com.jelg.socialnetwork.user;
 	
 import java.util.List;
 import java.util.Optional;
@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.jelg.socialnetwork.models.User;
-import com.jelg.socialnetwork.service.UserService;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

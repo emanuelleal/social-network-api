@@ -1,13 +1,10 @@
-package com.jelg.socialnetwork.service;
+package com.jelg.socialnetwork.user;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.jelg.socialnetwork.models.User;
-import com.jelg.socialnetwork.repository.UserRepository;
 
 @Service
 public class UserService {

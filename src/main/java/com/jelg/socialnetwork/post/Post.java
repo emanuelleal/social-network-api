@@ -1,4 +1,4 @@
-package com.jelg.socialnetwork.models;
+package com.jelg.socialnetwork.post;
 
 import java.util.Date;
 
@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.jelg.socialnetwork.models.basic.BasicEntity;
+import com.jelg.socialnetwork.user.User;
 
 import lombok.Data;
 

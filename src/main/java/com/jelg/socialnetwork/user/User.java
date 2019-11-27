@@ -1,4 +1,4 @@
-package com.jelg.socialnetwork.models;
+package com.jelg.socialnetwork.user;
 
 
 import org.springframework.data.annotation.Id;
